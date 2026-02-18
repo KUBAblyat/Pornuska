@@ -1,28 +1,6 @@
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 
-/* ── TAP OVERLAY ── */
-#tapOverlay {
-  position:fixed; inset:0; z-index:999;
-  background:radial-gradient(ellipse at center,#0d0000,#000);
-  display:flex; align-items:center; justify-content:center;
-  cursor:pointer;
-}
-#tapBox { text-align:center; animation:tapPulse 2s infinite; }
-#tapEye {
-  font-size:clamp(5rem,18vw,11rem);
-  filter:drop-shadow(0 0 30px rgba(255,68,0,.9));
-  margin-bottom:16px;
-}
-#tapHint {
-  font-family:'Creepster',cursive;
-  font-size:clamp(1.4rem,4vw,2.4rem);
-  color:#ff6600; letter-spacing:4px;
-  text-shadow:0 0 20px #ff3300;
-}
-@keyframes tapPulse {
-  0%,100%{transform:scale(1);opacity:1}
-  50%    {transform:scale(1.05);opacity:.8}
-}
+/* ── RESET ── */
 
 :root {
   --orange: #ff6600;

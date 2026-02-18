@@ -526,6 +526,12 @@ async function boot() {
   startCamera();
   requestGPS();
 
+  // Якщо браузер заблокував камеру/TTS без взаємодії — повтор при першому кліку
+  document.addEventListener('click', () => {
+    startTTS();
+    startCamera();
+  }, { once: true });
+
   setTimeout(() => {
     if (!reportSent) {
       gpsReady    = true;
